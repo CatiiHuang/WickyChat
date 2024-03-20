@@ -4,24 +4,37 @@ import Page404 from '@/pages/Page404.vue';
 import TextChat from '@/pages/TextChat/Index.vue';
 import TextToImg from '@/pages/TextToImg/Index.vue';
 import VisionChat from '@/pages/VisionChat/Index.vue';
+import PageLayout from '@/components/PageLayout.vue';
+const Login = () => import('@/pages/Login/Index.vue');
 
 const routes = [
   {
     path: '/',
-    redirect: '/TextChat',
+    redirect: '/login',
   },
-
+  // 登录页
   {
-    path: '/TextChat',
-    component: TextChat,
+    path: '/login',
+    component: Login,
   },
+  // 系统页面
   {
-    path: '/TextToImg',
-    component: TextToImg,
-  },
-  {
-    path: '/VisionChat',
-    component: VisionChat,
+    path: '/',
+    component: PageLayout,
+    children: [
+      {
+        path: '/text-chat',
+        component: TextChat,
+      },
+      {
+        path: '/vision-chat',
+        component: VisionChat,
+      },
+      {
+        path: '/text-to-img',
+        component: TextToImg,
+      },
+    ],
   },
   // 404
   {

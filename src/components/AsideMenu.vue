@@ -14,35 +14,35 @@
       </div>
     </template>
 
-    <t-menu-item value="/TextChat">
+    <t-menu-item value="/text-chat">
       <template #icon>
         <ChatBubbleSmileIcon />
       </template>
       <span>文字对话</span>
     </t-menu-item>
 
-    <t-menu-item value="/VisionChat">
+    <t-menu-item value="/vision-chat">
       <template #icon>
         <ImageSearchIcon />
       </template>
       <span>图文对话</span>
     </t-menu-item>
 
-    <t-menu-item value="/TextToImg">
+    <t-menu-item value="/text-to-img">
       <template #icon>
         <ImageSearchIcon />
       </template>
       <span>图生文</span>
     </t-menu-item>
 
-    <t-submenu value="/User">
+    <t-submenu value="/user">
       <template #icon>
         <t-icon name="user-circle" />
       </template>
       <template #title>
         <span>个人中心</span>
       </template>
-      <t-menu-item value="/UserCenter"> 个人中心 </t-menu-item>
+      <t-menu-item value="/user-center"> 个人中心 </t-menu-item>
     </t-submenu>
 
     <template #operations>

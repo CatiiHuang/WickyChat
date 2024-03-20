@@ -1,9 +1,9 @@
 <template>
-  <div>VisionChat</div>
+  <ChatWrap> <div>TextChat</div></ChatWrap>
 </template>
 
-<script>
-export default {};
+<script setup>
+import ChatWrap from '@/components/ChatWrap.vue';
 </script>
 
 <style></style>
