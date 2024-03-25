@@ -33,8 +33,8 @@ export default () =>
       },
       hmr: true,
       proxy: {
-        '/api/': {
-          target: 'http://127.0.0.1:8000/', // 代理的目标地址
+        '/api': {
+          target: 'http://192.151.243.240:8081', // 代理的目标地址
           rewrite: (path) => path.replace(/api/, ''), // 路径重写
           headers: {},
           changeOrigin: true,

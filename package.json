@@ -13,18 +13,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@microsoft/fetch-event-source": "^2.0.1",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "axios": "^0.26.0",
     "babel-eslint": "^10.1.0",
     "eslint-config-tencent": "^1.0.3",
+    "highlight.js": "^11.9.0",
     "less": "^4.1.2",
+    "markdown-it-code-copy": "^0.1.2",
     "stylus-loader": "^6.2.0",
     "tdesign-icons-vue-next": "^0.2.2",
     "tdesign-vue-next": "^1.8.1",
     "vite-plugin-eslint": "^1.8.1",
     "vue": "^3.2.25",
     "vue-router": "^4.0.12",
+    "vue3-markdown-it": "^1.0.10",
     "vuex": "^4.0.2"
   },
   "devDependencies": {
