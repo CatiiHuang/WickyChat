@@ -54,7 +54,7 @@
 </template>
 
 <script setup>
-import Logo from '../assets/logo.svg';
+import Logo from '../assets/logo.png';
 import { ChatBubbleSmileIcon, ImageSearchIcon } from 'tdesign-icons-vue-next';
 import { useRoute, useRouter } from 'vue-router';
 import { ref, watch } from 'vue';
@@ -85,8 +85,9 @@ watch(
 .logo-img {
   height: 38px;
   width: 38px;
-  border: 1px solid #bbb;
+  border: 2px solid #223399;
   border-radius: 50%;
+  box-sizing: border-box;
 }
 .page-aside-menu {
   min-height: 100vh;

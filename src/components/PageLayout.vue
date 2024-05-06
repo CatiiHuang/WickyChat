@@ -1,6 +1,9 @@
 <script setup>
 import PageHeader from './PageHeader.vue';
 import AsideMenu from './AsideMenu.vue';
+import { useUserInfo } from '@/hooks/UserInfoHooks';
+
+useUserInfo();
 </script>
 
 <template>

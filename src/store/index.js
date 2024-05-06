@@ -3,8 +3,10 @@ import { createStore } from 'vuex';
 export default createStore({
   modules: {},
   state: {
-    test: 233,
+    userInfo: {},
   },
-  mutations: {},
+  mutations: {
+    chanUserInfo: (state, view) => (state.name = view),
+  },
   actions: {},
 });

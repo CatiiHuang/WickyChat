@@ -34,10 +34,10 @@ export default () =>
       hmr: true,
       proxy: {
         '/api': {
-          target: 'http://192.151.243.240:8081', // 代理的目标地址
-          rewrite: (path) => path.replace(/api/, ''), // 路径重写
+          target: 'http://170.106.188.182:8081', // 代理的目标地址
+          rewrite: (path) => path.replace(/\/api/, ''), // 路径重写
           headers: {},
-          changeOrigin: true,
+          changeOrigin: false,
         },
       },
     },

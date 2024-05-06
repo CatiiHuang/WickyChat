@@ -5,20 +5,10 @@
       <span class="logo-label">Wicky Chat</span>
     </div>
     <div class="operations-container">
-      <t-button
-        theme="default"
-        shape="square"
-        variant="text"
-        @click="navToGitHub"
-      >
+      <t-button theme="default" shape="square" variant="text">
         <t-icon name="logo-github" class="icon" />
       </t-button>
-      <t-button
-        theme="default"
-        shape="square"
-        variant="text"
-        @click="navToHelper"
-      >
+      <t-button theme="default" shape="square" variant="text">
         <t-icon name="help-circle" class="icon" />
       </t-button>
       <t-button theme="default" shape="square" variant="text">
@@ -29,15 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import Logo from '@/assets/logo.svg';
-
-const navToGitHub = () => {
-  window.open('https://github.com/tencent/tdesign-vue-next-starter');
-};
-
-const navToHelper = () => {
-  window.open('http://tdesign.tencent.com/starter/docs/get-started');
-};
+import Logo from '@/assets/logo.png';
 </script>
 
 <style lang="less" scoped>

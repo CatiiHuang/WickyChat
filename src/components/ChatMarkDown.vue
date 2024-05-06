@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="markdown-box">
     <Markdown :source="source" :plugins="plugins" />
     <div class="loading-box">
       <t-loading v-if="chatLoading" size="small"></t-loading>
@@ -54,6 +54,8 @@ const plugins = reactive([
 }
 .markdown-it-code-copy {
   display: flex;
+}
+.markdown-box {
 }
 .loading-box {
   display: flex;

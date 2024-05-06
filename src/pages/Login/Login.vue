@@ -45,7 +45,12 @@
       </t-form-item>
 
       <t-form-item>
-        <t-button theme="primary" size="large" type="submit" block
+        <t-button
+          theme="primary"
+          size="large"
+          type="submit"
+          block
+          :loading="loginLoadingState"
           >登录</t-button
         >
       </t-form-item>
@@ -61,6 +66,10 @@ import { reactive } from 'vue';
 import { MessagePlugin } from 'tdesign-vue-next';
 import { DesktopIcon, LockOnIcon } from 'tdesign-icons-vue-next';
 import { useRouter } from 'vue-router';
+import { userLoginAPI } from '@/api/index';
+import { useRequestLoading } from '@/hooks/CommUtilsHooks';
+
+const [loginLoadingState, loginRequest] = useRequestLoading(userLoginAPI);
 
 const router = useRouter();
 const formData = reactive({
@@ -69,14 +78,23 @@ const formData = reactive({
 });
 
 const rules = {
-  account: [{ required: true }, { min: 2 }, { max: 10, type: 'warning' }],
-  password: [{ required: true }, { len: 8, message: '请输入 8 位密码' }],
+  account: [{ required: true }, { min: 6 }, { max: 12, type: 'warning' }],
+  password: [{ required: true }],
 };
 
 const onSubmit = ({ validateResult }) => {
-  if (validateResult === false) return;
-  MessagePlugin.success('提交成功');
-  router.push('/text-chat');
+  console.log(validateResult);
+  if (validateResult !== true) return;
+
+  loginRequest({
+    userName: formData.account,
+    password: formData.password,
+  }).then(({ code }) => {
+    if (code === 200) {
+      MessagePlugin.success('登录成功');
+      router.push('/text-chat');
+    }
+  });
 };
 </script>
 

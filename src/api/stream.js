@@ -1,5 +1,5 @@
 import { fetchEventSource } from '@microsoft/fetch-event-source';
-
+import { MessagePlugin } from 'tdesign-vue-next';
 /**
  * 
 curl --location 'http://192.151.243.240:8081/v1/chat/completions' \
@@ -14,7 +14,7 @@ curl --location 'http://192.151.243.240:8081/v1/chat/completions' \
      "stream": true
    }'
  */
-export const sendChatMessagesAPI = (payLoad, callback) =>
+export const sendChatMessagesAPI = (payLoad, { onmessage, onopen }) =>
   new Promise((resolve, reject) => {
     fetchEventSource('/api/v1/chat/completions', {
       method: 'POST',
@@ -23,10 +23,15 @@ export const sendChatMessagesAPI = (payLoad, callback) =>
       },
       body: JSON.stringify(payLoad),
       async onopen(response) {
+        const { status, statusText } = response;
         console.log('onopen:', response);
+        if (status === 200) onopen();
+        else {
+          MessagePlugin.error(statusText);
+        }
       },
       onmessage(msg) {
-        callback(msg);
+        onmessage(msg);
       },
       onclose() {
         console.log('onclose');
